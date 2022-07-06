@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Over the Wire Bandit 1 4 | Random Flea</title>
+  <link rel = 'canonical' href = 'https://randomflea.dev/posts/wargames/over-the-wire-bandit-1-4/'>
+  <meta name="description" content="I&#39;ve spent 8&#43; years learning new skills and technology to complete tasks in my career as an IT Tech. I became proficient at finding and implementing budget friendly solutions to solve businesses problems. I quickly gained new responsibilities as I learned more of the environment. My main tasks include: thin client management, patch management, asset management, and tier 2 helpdesk support. Outside of work I enjoy a range of different hobbies such as: astrophotagraphy, hiking, and reading.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Over the Wire Bandit 1 4" />
+<meta property="og:description" content="Over The Wire Intro I&rsquo;m starting a series on Over the Wire Wargames. Each wargame has different levels you progress through to beat it. It provides a fun way to learn security concepts from the very basics to the advanced. It gives you roadmap to take you through each wargame so that they build on what you learned from the others. All you have to do is ssh into the room and start figuring out how to get the password for the next level." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://randomflea.dev/posts/wargames/over-the-wire-bandit-1-4/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-23T16:38:23-04:00" />
+<meta property="article:modified_time" content="2022-06-23T16:38:23-04:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Over the Wire Bandit 1 4"/>
+<meta name="twitter:description" content="Over The Wire Intro I&rsquo;m starting a series on Over the Wire Wargames. Each wargame has different levels you progress through to beat it. It provides a fun way to learn security concepts from the very basics to the advanced. It gives you roadmap to take you through each wargame so that they build on what you learned from the others. All you have to do is ssh into the room and start figuring out how to get the password for the next level."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://randomflea.dev/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://randomflea.dev/images/favicon.ico" />
+
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">All posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://randomflea.dev/posts/tech/zero-to-mastery-academy-review/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f&text=Over%20the%20Wire%20Bandit%201%204" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f&title=Over%20the%20Wire%20Bandit%201%204" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f&is_video=false&description=Over%20the%20Wire%20Bandit%201%204" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Over%20the%20Wire%20Bandit%201%204&body=Check out this article: https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f&title=Over%20the%20Wire%20Bandit%201%204" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f&title=Over%20the%20Wire%20Bandit%201%204" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f&name=Over%20the%20Wire%20Bandit%201%204&description=Over%20The%20Wire%20Intro%20I%26rsquo%3bm%20starting%20a%20series%20on%20Over%20the%20Wire%20Wargames.%20Each%20wargame%20has%20different%20levels%20you%20progress%20through%20to%20beat%20it.%20It%20provides%20a%20fun%20way%20to%20learn%20security%20concepts%20from%20the%20very%20basics%20to%20the%20advanced.%20It%20gives%20you%20roadmap%20to%20take%20you%20through%20each%20wargame%20so%20that%20they%20build%20on%20what%20you%20learned%20from%20the%20others.%20All%20you%20have%20to%20do%20is%20ssh%20into%20the%20room%20and%20start%20figuring%20out%20how%20to%20get%20the%20password%20for%20the%20next%20level." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f&t=Over%20the%20Wire%20Bandit%201%204" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#over-the-wire-intro">Over The Wire Intro</a></li>
+    <li><a href="#level-0httpsoverthewireorgwargamesbanditbandit0html-level-0"><a href="https://overthewire.org/wargames/bandit/bandit0.html" title="Level 0">Level 0</a></a></li>
+    <li><a href="#level-0---level-1httpsoverthewireorgwargamesbanditbandit1html-level-0---level-1"><a href="https://overthewire.org/wargames/bandit/bandit1.html" title="Level 0 -&gt; Level 1">Level 0 -&gt; Level 1</a></a></li>
+    <li><a href="#level-1---level-2httpsoverthewireorgwargamesbanditbandit2html-level-1---level-2"><a href="https://overthewire.org/wargames/bandit/bandit2.html" title="Level 1 -&gt; Level 2">Level 1 -&gt; Level 2</a></a></li>
+    <li><a href="#level-2---level-3httpsoverthewireorgwargamesbanditbandit3html-level-2---level-3"><a href="https://overthewire.org/wargames/bandit/bandit3.html" title="Level 2 -&gt; Level 3">Level 2 -&gt; Level 3</a></a></li>
+    <li><a href="#level-3---level-4httpsoverthewireorgwargamesbanditbandit4html-level-3---level-4"><a href="https://overthewire.org/wargames/bandit/bandit4.html" title="Level 3 -&gt; Level 4">Level 3 -&gt; Level 4</a></a></li>
+  </ul>
+</nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Over the Wire Bandit 1 4
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2022-06-23 16:38:23 -0400 EDT" itemprop="datePublished">2022-06-23</time>
+          
+        </div>
+        
+        
+        
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <h2 id="over-the-wire-intro">Over The Wire Intro</h2>
+<p>I&rsquo;m starting a series on <a href="https://overthewire.org" title="Over The Wire Wargames">Over the Wire Wargames</a>. Each wargame has different levels you progress through to beat it. It provides a fun way to learn security concepts from the very basics to the advanced. It gives you roadmap to take you through each wargame so that they build on what you learned from the others. All you have to do is ssh into the room and start figuring out how to get the password for the next level. The beginner one is called Bandit. SSH will get you into a terminal of the room where you can type commands to find the password. They give you two commands to help when you get stuck: man and help. The man command is used by typing <code>man command_name</code> and will bring up the manual for the command. The help command is used the same way, but is used for a shell built-in command. If one doesn&rsquo;t work try the other. They give you clues as to what commands may be useful or different things to search for. I&rsquo;m starting my way through Bandit and will be posting how I solved each level.</p>
+<h2 id="level-0httpsoverthewireorgwargamesbanditbandit0html-level-0"><a href="https://overthewire.org/wargames/bandit/bandit0.html" title="Level 0">Level 0</a></h2>
+<p>This level will teach you how to ssh into the room. The useful command is ssh. On Windows, you will need a program called <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" title="Putty">Putty</a> which allows to use ssh. When you have Putty open, fill in the host and port. You can then type a name, maybe bandit, under Saved Sessions and click save. Then you just need to double click on bandit to open it next time. On Linux or Mac, open the terminal and type <code>ssh bandit0@bandit.labs.overthewire.org -p 2220</code>. Once we find a password, we need to close that ssh session and reopen another one using the new username and password.</p>
+<h2 id="level-0---level-1httpsoverthewireorgwargamesbanditbandit1html-level-0---level-1"><a href="https://overthewire.org/wargames/bandit/bandit1.html" title="Level 0 -&gt; Level 1">Level 0 -&gt; Level 1</a></h2>
+<p>For this level, you need to figure out how to open a file called readme. The useful commands are ls, cd, cat, file, du, and find. First we need to figure out what these commands do by using man. If we <code>man ls</code>, we find out that it will list a directory&rsquo;s contents. That sounds useful. Let&rsquo;s run <code>ls</code> and see what it returns. It tells us there is a file called readme in this directory. From the Level Goal, we know readme is supposed to be in the home directory so we must start in the home directory when we first ssh into the room. That could be useful information later on. Now we just need to open the file so let&rsquo;s see if any of the other commands are going to help. <code>man cd</code> says there isn&rsquo;t a manual for it so we need to run <code>help cd</code>. That tells us it&rsquo;s used for changing to another directory. We&rsquo;re in the correct directory so that&rsquo;s not useful. <code>man cat</code> tells us it concatenates file and prints to the standard output. That sounds confusing. Basically it will print the contents of a file or files which sounds like what we need. If we try <code>cat readme</code>, it returns the password for the next level!</p>
+<h2 id="level-1---level-2httpsoverthewireorgwargamesbanditbandit2html-level-1---level-2"><a href="https://overthewire.org/wargames/bandit/bandit2.html" title="Level 1 -&gt; Level 2">Level 1 -&gt; Level 2</a></h2>
+<p>For this level we need to open a file called -. The useful commands are ls, cd, cat, file, du, and find. We know cat will open a file so let&rsquo;s try <code>cat -</code>. Seems like it didn&rsquo;t do anything so let&rsquo;s press ctrl+c to stop it. Reading the manual again, we see that a - reads from the standard input. So whatever we type, it will print out on the screen. How can we read from a file called - then? It&rsquo;s time to get some help from the Internet. After searching, we find there are a couple ways to do it. The first way, <code>cat ./-</code>, the ./ represents the current working directory. The second way, <code>cat &lt; -</code>, the &lt; character tells cat to use the file - as an input. Either way gets the password for the next level.</p>
+<h2 id="level-2---level-3httpsoverthewireorgwargamesbanditbandit3html-level-2---level-3"><a href="https://overthewire.org/wargames/bandit/bandit3.html" title="Level 2 -&gt; Level 3">Level 2 -&gt; Level 3</a></h2>
+<p>For this level we need to open a file called spaces in this filename. The useful commands are ls, cd, cat, file, du, and find. Let&rsquo;s try to cat it. It says:</p>
+<pre tabindex="0"><code>    cat: spaces: No such file or directory
+    cat: in: No such file or directory
+    cat: this: No such file or directory
+    cat: filename: No such file or directory
+</code></pre><p>It&rsquo;s treating each word as a filename. Reading the man page again doesn&rsquo;t give any useful information. The Helpful Reading Material says to search for spaces in filename so let&rsquo;s try that. There&rsquo;s a couple ways to accomplish this. The first is the use quotes, cat <code>&quot;spaces in this filename&quot;</code>, to tell cat that it&rsquo;s all one filename. The second is to escape the spaces to tell cat that the spaces are part of the filename, <code>cat spaces\ in\ this\ filename</code>. Either way gets the password for the next level.</p>
+<h2 id="level-3---level-4httpsoverthewireorgwargamesbanditbandit4html-level-3---level-4"><a href="https://overthewire.org/wargames/bandit/bandit4.html" title="Level 3 -&gt; Level 4">Level 3 -&gt; Level 4</a></h2>
+<p>For this level we need to open a hidden in the inhere directory. The useful commands are ls, cd, cat, file, du, and find. First need to change to the inhere directory. Let&rsquo;s run <code>ls</code> to see if it&rsquo;s in our home directory. It is so let&rsquo;s change to it using cd which we know changes directories from earlier, <code>cd inhere</code>. Now we can ls again to see if we can find the hidden file. Nothing&rsquo;s there. Let&rsquo;s do some research on hidden files in Linux. We find that hidden files start with a . so let&rsquo;s go the ls manual and see how to list them. The first option, -a, tells ls not to ignore entries starting with . so let&rsquo;s run <code>ls -a</code>. We see the .hidden file now so let&rsquo;s cat that to get the next password.</p>
+<p>This seems like a good place to stop for now. The next level starts getting into different commands. It&rsquo;ll make things easier to read and follow along by grouping them by similar commands. I hope you enjoyed the first few levels of Bandit. I&rsquo;ll be posting the new group soon.</p>
+
+    </div>
+  </article>
+
+    <div class="blog-post-comments">
+      <script
+        data-isso="/comments"
+        data-isso-id=""
+        data-isso-css="true"
+        data-isso-lang="en"
+        data-isso-avatar="true"
+        data-isso-avatar-bg="#f0f0f0"
+        src="/comments/js/embed.min.js">
+      </script>
+      <noscript>Please enable JavaScript to view the comments powered by <a href="https://posativ.org/isso/">Isso</a>.</noscript>
+      <div>
+        <section id="isso-thread"></section>
+      </div>
+  </div>
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">All posts</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#over-the-wire-intro">Over The Wire Intro</a></li>
+    <li><a href="#level-0httpsoverthewireorgwargamesbanditbandit0html-level-0"><a href="https://overthewire.org/wargames/bandit/bandit0.html" title="Level 0">Level 0</a></a></li>
+    <li><a href="#level-0---level-1httpsoverthewireorgwargamesbanditbandit1html-level-0---level-1"><a href="https://overthewire.org/wargames/bandit/bandit1.html" title="Level 0 -&gt; Level 1">Level 0 -&gt; Level 1</a></a></li>
+    <li><a href="#level-1---level-2httpsoverthewireorgwargamesbanditbandit2html-level-1---level-2"><a href="https://overthewire.org/wargames/bandit/bandit2.html" title="Level 1 -&gt; Level 2">Level 1 -&gt; Level 2</a></a></li>
+    <li><a href="#level-2---level-3httpsoverthewireorgwargamesbanditbandit3html-level-2---level-3"><a href="https://overthewire.org/wargames/bandit/bandit3.html" title="Level 2 -&gt; Level 3">Level 2 -&gt; Level 3</a></a></li>
+    <li><a href="#level-3---level-4httpsoverthewireorgwargamesbanditbandit4html-level-3---level-4"><a href="https://overthewire.org/wargames/bandit/bandit4.html" title="Level 3 -&gt; Level 4">Level 3 -&gt; Level 4</a></a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f&text=Over%20the%20Wire%20Bandit%201%204" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f&title=Over%20the%20Wire%20Bandit%201%204" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f&is_video=false&description=Over%20the%20Wire%20Bandit%201%204" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Over%20the%20Wire%20Bandit%201%204&body=Check out this article: https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f&title=Over%20the%20Wire%20Bandit%201%204" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f&title=Over%20the%20Wire%20Bandit%201%204" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f&name=Over%20the%20Wire%20Bandit%201%204&description=Over%20The%20Wire%20Intro%20I%26rsquo%3bm%20starting%20a%20series%20on%20Over%20the%20Wire%20Wargames.%20Each%20wargame%20has%20different%20levels%20you%20progress%20through%20to%20beat%20it.%20It%20provides%20a%20fun%20way%20to%20learn%20security%20concepts%20from%20the%20very%20basics%20to%20the%20advanced.%20It%20gives%20you%20roadmap%20to%20take%20you%20through%20each%20wargame%20so%20that%20they%20build%20on%20what%20you%20learned%20from%20the%20others.%20All%20you%20have%20to%20do%20is%20ssh%20into%20the%20room%20and%20start%20figuring%20out%20how%20to%20get%20the%20password%20for%20the%20next%20level." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2frandomflea.dev%2fposts%2fwargames%2fover-the-wire-bandit-1-4%2f&t=Over%20the%20Wire%20Bandit%201%204" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2022  High Tech Amish 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">All posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+</html>

@@ -1,0 +1,29 @@
+{
+   "list": [
+      {
+         "name":"Port Scanner",
+         "url":"https://github.com/ayoder243/portscanner",
+         "desc":"A simple port scanner written in Python3"
+      },
+      {
+         "name":"Command and Control",
+         "url":"https://github.com/ayoder243/backdoor",
+         "desc":"A simple backdoor with basic command and control functions"
+      },
+      {
+         "name":"Hacker News Scraper",
+         "url":"https://github.com/ayoder243/ztm-python/blob/main/hacker_news_scraper.py",
+         "desc":"Get posts with more than 100 upvotes from specified pages"
+      },
+      {
+         "name":"Password Checker",
+         "url":"https://github.com/ayoder243/ztm-python/blob/main/is_password_hacked.py",
+         "desc":"Check if password is in pwnedpasswords.com"
+      },
+      {
+         "name":"My Kitties",
+         "url":"https://ayoder243.github.io/kitties/",
+         "desc":"Basic site with my cats"
+      }
+   ]
+}

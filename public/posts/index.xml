@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Random Flea</title>
+    <link>https://randomflea.dev/posts/</link>
+    <description>Recent content in Posts on Random Flea</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>High Tech Amish</copyright>
+    <lastBuildDate>Thu, 23 Jun 2022 16:38:23 -0400</lastBuildDate><atom:link href="https://randomflea.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Over the Wire Bandit 1 4</title>
+      <link>https://randomflea.dev/posts/wargames/over-the-wire-bandit-1-4/</link>
+      <pubDate>Thu, 23 Jun 2022 16:38:23 -0400</pubDate>
+      
+      <guid>https://randomflea.dev/posts/wargames/over-the-wire-bandit-1-4/</guid>
+      <description>Over The Wire Intro I&amp;rsquo;m starting a series on Over the Wire Wargames. Each wargame has different levels you progress through to beat it. It provides a fun way to learn security concepts from the very basics to the advanced. It gives you roadmap to take you through each wargame so that they build on what you learned from the others. All you have to do is ssh into the room and start figuring out how to get the password for the next level.</description>
+    </item>
+    
+    <item>
+      <title>Zero to Mastery Academy Review</title>
+      <link>https://randomflea.dev/posts/tech/zero-to-mastery-academy-review/</link>
+      <pubDate>Fri, 27 May 2022 16:37:58 -0400</pubDate>
+      
+      <guid>https://randomflea.dev/posts/tech/zero-to-mastery-academy-review/</guid>
+      <description>While I was looking for a way to learn web development, I found many resources to try. I wanted to go the free route first so I tried The Odin Project first. I liked the structure of it and the cool projects, felt like I learned better with videos instead of text. The Odin Project is a great resource and I may go back to revisit it, but I needed a different format to learn faster.</description>
+    </item>
+    
+    <item>
+      <title>My It Journey</title>
+      <link>https://randomflea.dev/posts/tech/my-it-journey/</link>
+      <pubDate>Tue, 24 May 2022 12:21:45 -0400</pubDate>
+      
+      <guid>https://randomflea.dev/posts/tech/my-it-journey/</guid>
+      <description>I always had a fascination with computers and wondering how they worked. This led to me taking a computer and networking course at a local tech school during my junior and senior years of high school. I had free range to work on whatever interested me. Which at that time was coding and security. Those remain the areas I enjoy the most. After graduating high school I went on to a community college to get my general education classes out of the way and use a scholarship I had earned.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,55 @@
+baseURL = 'https://randomflea.dev/'
+languageCode = 'en-us'
+title = 'Random Flea'
+theme = "cactus"
+copyright = "High Tech Amish"
+
+[params]
+    colortheme = "dark"
+    description = "I've spent 8+ years learning new skills and technology to complete tasks in my career as an IT Tech. I became proficient at finding and implementing budget friendly solutions to solve businesses problems. I quickly gained new responsibilities as I learned more of the environment. My main tasks include: thin client management, patch management, asset management, and tier 2 helpdesk support. Outside of work I enjoy a range of different hobbies such as: astrophotagraphy, hiking, and reading."
+    showAllPostsOnHomePage = false
+    postsOnHomePage = 5
+    showProjectsList = true
+    projectsUrl = "https://github.com/ayoder243"
+
+    [[params.social]]
+        name = "github"
+        link = "https://github.com/ayoder243"
+    [[params.social]]
+        name = "linkedin"
+        link = "https://www.linkedin.com/in/aaron-yoder-b58bb8236/"
+    [[params.social]]
+        name = "email"
+        link = "mailto:ayoder243@gmail.com"
+
+    [params.comments]
+        enabled = true
+        engine = "isso"
+
+    [params.isso]
+        data = "/comments"
+        css = true
+        lang = "en"
+        avatar = true
+        avatarBg = "#f0f0f0"
+
+    [[menu.main]]
+        name = "Home"
+        url = "/"
+        weight = 1
+
+    [[menu.main]]
+        name = "All posts"
+        url = "/posts"
+        weight = 2
+
+    [[menu.main]]
+        name = "Tags"
+        url = "/tags"
+        weight = 3
+
+    [[menu.main]]
+        name = "About"
+        url = "/about"
+        weight = 4
+
