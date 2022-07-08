@@ -2,6 +2,8 @@
 title: "Over the Wire Bandit 1 4"
 date: 2022-06-23T16:38:23-04:00
 draft: false
+tags = []
+categories = []
 ---
 
 ## Over The Wire Intro
