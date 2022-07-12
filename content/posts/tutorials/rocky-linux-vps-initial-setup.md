@@ -1,6 +1,6 @@
 ---
 title: "Initial Setup of a Rocky Linux VPS"
-date: 2022-07-08T12:21:45-04:00
+date: 2022-07-12T12:21:45-04:00
 draft: false
 ---
 
