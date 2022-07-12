@@ -40,7 +40,7 @@ Now we want to test the new account to make sure it has admin rights. We'll run 
     sudo dnf upgrade -y
     exit
 ```
-We'll disconnect from this ssh session by running the exit command and reconnect with the user account. We'll use the same process as the Initial Connection section, but use the user account instead of root. Once connected we can disable the root account by editing the /etc/passwd file. We'll open the file with nano then edit the first line that starts with root. The last part of the line, /bin/bash, needs to change to /sbin/nologin. We'll start using ```sudo``` here to say we want the command run as an admin. When finished, use ctrl+x to save the file and exit.
+We'll start a new SSH session with the user account. We'll use the same process as the Initial Connection section, but use the user account instead of root. Once connected, we can close the other session. Now let's disable the root account by editing the /etc/passwd file. We'll open the file with nano then edit the first line that starts with root. The last part of the line, /bin/bash, needs to change to /sbin/nologin. We'll start using ```sudo``` here to say we want the command run as an admin. When finished, use ctrl+x to save the file and exit.
 ```commandline
     sudo nano /etc/passwd
     Change root:......:/bin/bash to root:.........:/sbin/nologin
@@ -62,7 +62,7 @@ Now we need to change the firewall to block port 22 and allow the new port, 4321
     sudo firewall-cmd --permanent --zone=public --add-port=XXXX/tcp
     sudo firewall-cmd --reload
 ```
-Let's exit this session and reconnect using the new port. For Windows, put the new port number in the Port box of Putty. For Linux and MacOS, use the -p switch.
+Let's open a new seesion using the new port. For Windows, put the new port number in the Port box of Putty. For Linux and MacOS, use the -p switch. Once we verified that it's working, we can close the old session.
 ```commandline
     ssh user@server-ip -p 4321
 ```
@@ -81,13 +81,12 @@ Next we'll need to create the keys, then copy the public key to the server. For 
 Now we need to restart the SSH service and test the keys.
 ```commandline
     sudo systemctl restart sshd
-    exit
 ```
 For Windows, open Putty and enter the IP and port. On the left side under Connection -> SSH -> Auth, enter the path to the private key in the Private key file for authentication box. Then go back to Session on the left. Type in a name under Saved Sessions and click Save. Now you can just double click on the name to connect. For Linux and MacOS, use the -i switch.
 ```commandline
     ssh user@server-ip -p 4321 -i /path/to/private/key
 ```
-When you connect using the private key, you'll enter your username and the passphrase for the private key. Since all that worked, we can disable password authentication in the /etc/ssh/sshd_config file.
+When you connect using the private key, you'll enter your username and the passphrase for the private key. Once we've verified it is working, we can close the other session. We can disable password authentication in the /etc/ssh/sshd_config file.
 ```commandline
     sudo nano /etc/ssh/sshd_config
         change #PubkeyAuthentication yes to PubkeyAuthentication yes
