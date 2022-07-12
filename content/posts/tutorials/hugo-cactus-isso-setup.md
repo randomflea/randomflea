@@ -1,6 +1,6 @@
 ---
 title: "Create Hugo Site with Cactus theme and isso Comments on Rocky Linux Served by nginx"
-date: 2022-05-24T12:21:45-04:00
+date: 2022-07-12T12:21:45-04:00
 draft: false
 ---
 
