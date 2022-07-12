@@ -1,5 +1,5 @@
 ---
-title: "Create Hugo Site with Cactus theme and isso Comments on Rocky Linux Served by nginx"
+title: "Create Hugo Site with Cactus theme and Isso Comments"
 date: 2022-07-12T12:21:45-04:00
 draft: false
 ---
@@ -353,3 +353,12 @@ sudo systemctl restart nginx
 
 ## Closing Thoughts
 You now have a Hugo website with Isso comments served by nginx. Hugo makes it easy to customise the site. You can play around with the different options for the config.toml file and see what you like best. Enjoy your new site and happy posting!
+
+### References I Used
+1. [Hugo Quick Start Guide](https://gohugo.io/getting-started/quick-start/)
+2. [Cactus Theme](https://themes.gohugo.io/themes/hugo-theme-cactus/)
+3. [Isso Documentation](https://isso-comments.de/docs/reference/client-config/)
+4. [Bruno Parmentier Blog](https://www.brunoparmentier.be/blog/getting-isso-to-work-on-centos-6-and-nginx/)
+5. [Omicx Blog](https://omicx.cc/posts/2021-04-16-create-a-hugo-blog/)
+6. [Certbot Instructions](https://certbot.eff.org/instructions?ws=nginx&os=centosrhel8)
+7. [Snapcraft](https://snapcraft.io/docs/installing-snap-on-rocky)
