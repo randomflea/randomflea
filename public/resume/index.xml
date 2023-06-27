@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resumes on Random Flea</title>
+    <link>https://randomflea.dev/resume/</link>
+    <description>Recent content in Resumes on Random Flea</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>High Tech Amish</copyright><atom:link href="https://randomflea.dev/resume/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://randomflea.dev/resume/resume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://randomflea.dev/resume/resume/</guid>
+      <description>Aaron Yoder IT Tech ayoder@randomflea.dev Executive Summary I spent the last 9 years at Pike County Memorial Hospital as an IT Tech. I quickly gained new responsibilities as I proved what I could do. I eventually was given the freedom to work on projects of my choosing. I created an asset management tool with python and later was able to implement Lansweeper. I implemented a patch management solution, simple websites, SIEM, thin client management, and simple websites.</description>
+    </item>
+    
+  </channel>
+</rss>

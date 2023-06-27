@@ -7,7 +7,36 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>High Tech Amish</copyright>
-    <lastBuildDate>Thu, 23 Jun 2022 16:38:23 -0400</lastBuildDate><atom:link href="https://randomflea.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Jun 2023 16:37:58 -0400</lastBuildDate><atom:link href="https://randomflea.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CompTIA Security&#43; Certification</title>
+      <link>https://randomflea.dev/posts/tech/sec&#43;/</link>
+      <pubDate>Tue, 13 Jun 2023 16:37:58 -0400</pubDate>
+      
+      <guid>https://randomflea.dev/posts/tech/sec&#43;/</guid>
+      <description>I successfully passed my Security+ certification exam in April. I started studying August 2022, but having a baby and starting a business made studying take a bit longer than usual. Once things kind of started settling down, I was able to dedicate more hours per day to study and felt I was ready after a couple weeks.
+I went through the CompTIA training with the complete bundle. I recieved access to CertMaster Practice, CertMaster Learn + Labs, and 2 exam vouchers.</description>
+    </item>
+    
+    <item>
+      <title>Create Hugo Site with Cactus theme and Isso Comments</title>
+      <link>https://randomflea.dev/posts/tutorials/hugo-cactus-isso-setup/</link>
+      <pubDate>Tue, 12 Jul 2022 12:21:45 -0400</pubDate>
+      
+      <guid>https://randomflea.dev/posts/tutorials/hugo-cactus-isso-setup/</guid>
+      <description>I had been using flask to run my personal site, then decided to switch to Hugo for simplicity. I looked through the Hugo Themes and really liked the Cactus Theme. It&amp;rsquo;s minimal and just looks better in my opinion. It had places for my blog, projects, and info about me which is all I needed for now. I wanted to add a comment section to my blog posts. Disqus is the big one but I don&amp;rsquo;t like the tracking they do.</description>
+    </item>
+    
+    <item>
+      <title>Initial Setup of a Rocky Linux VPS</title>
+      <link>https://randomflea.dev/posts/tutorials/rocky-linux-vps-initial-setup/</link>
+      <pubDate>Fri, 08 Jul 2022 12:21:46 -0400</pubDate>
+      
+      <guid>https://randomflea.dev/posts/tutorials/rocky-linux-vps-initial-setup/</guid>
+      <description>Initial Setup of a Rocky Linux VPS So you just got a VPS with Rocky Linux installed on it (this guide will work for CentOS, RHEL, and Alma Linux too) and you have questions about it. How do you keep this secure on the Internet? How do you connect to it? Here are a few simple steps to keep your VPS secure.
+Prerequisites Rocky Linux Installed (or CentOS, RHEL, or Alma Linux) Root access to server Terminal access (we&amp;rsquo;ll be connecting with SSH) Initial Connection Most VPS providers have SSH access setup by default.</description>
+    </item>
+    
     <item>
       <title>Over the Wire Bandit 1 4</title>
       <link>https://randomflea.dev/posts/wargames/over-the-wire-bandit-1-4/</link>

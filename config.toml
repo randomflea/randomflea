@@ -6,7 +6,7 @@ copyright = "High Tech Amish"
 
 [params]
     colortheme = "dark"
-    description = "I've spent 8+ years learning new skills and technology to complete tasks in my career as an IT Tech. I became proficient at finding and implementing budget friendly solutions to solve businesses problems. I quickly gained new responsibilities as I learned more of the environment. My main tasks include: thin client management, patch management, asset management, and tier 2 helpdesk support. Outside of work I enjoy a range of different hobbies such as: astrophotagraphy, hiking, and reading."
+    description = "I've spent 10+ years learning new skills and technology to complete tasks in my career as an IT Tech. I became proficient at finding and implementing budget friendly solutions to solve businesses problems. I quickly gained new responsibilities as I learned more of the environment. My main tasks include: vulnerability management, patch management, asset management, SIEM, and tier 2 helpdesk support. Outside of work I enjoy a range of different hobbies such as: astrophotagraphy, hiking, and reading. I also recently opened a board game cafe with my wife."
     showAllPostsOnHomePage = false
     postsOnHomePage = 5
     showProjectsList = true
@@ -20,7 +20,7 @@ copyright = "High Tech Amish"
         link = "https://www.linkedin.com/in/aaron-yoder-b58bb8236/"
     [[params.social]]
         name = "email"
-        link = "mailto:ayoder243@gmail.com"
+        link = "mailto:ayoder@randomflea.dev"
 
     [params.comments]
         enabled = true
@@ -53,3 +53,7 @@ copyright = "High Tech Amish"
         url = "/about"
         weight = 4
 
+    [[menu.main]]
+        name = "Resume"
+        url = "/resume"
+        weight = 5

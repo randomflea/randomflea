@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Initial Setup of a Rocky Linux VPS | Random Flea</title>
+  <link rel = 'canonical' href = 'https://randomflea.dev/posts/tutorials/rocky-linux-vps-initial-setup/'>
+  <meta name="description" content="I&#39;ve spent 10&#43; years learning new skills and technology to complete tasks in my career as an IT Tech. I became proficient at finding and implementing budget friendly solutions to solve businesses problems. I quickly gained new responsibilities as I learned more of the environment. My main tasks include: vulnerability management, patch management, asset management, SIEM, and tier 2 helpdesk support. Outside of work I enjoy a range of different hobbies such as: astrophotagraphy, hiking, and reading. I also recently opened a board game cafe with my wife.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Initial Setup of a Rocky Linux VPS" />
+<meta property="og:description" content="Initial Setup of a Rocky Linux VPS So you just got a VPS with Rocky Linux installed on it (this guide will work for CentOS, RHEL, and Alma Linux too) and you have questions about it. How do you keep this secure on the Internet? How do you connect to it? Here are a few simple steps to keep your VPS secure.
+Prerequisites Rocky Linux Installed (or CentOS, RHEL, or Alma Linux) Root access to server Terminal access (we&rsquo;ll be connecting with SSH) Initial Connection Most VPS providers have SSH access setup by default." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://randomflea.dev/posts/tutorials/rocky-linux-vps-initial-setup/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-08T12:21:46-04:00" />
+<meta property="article:modified_time" content="2022-07-08T12:21:46-04:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Initial Setup of a Rocky Linux VPS"/>
+<meta name="twitter:description" content="Initial Setup of a Rocky Linux VPS So you just got a VPS with Rocky Linux installed on it (this guide will work for CentOS, RHEL, and Alma Linux too) and you have questions about it. How do you keep this secure on the Internet? How do you connect to it? Here are a few simple steps to keep your VPS secure.
+Prerequisites Rocky Linux Installed (or CentOS, RHEL, or Alma Linux) Root access to server Terminal access (we&rsquo;ll be connecting with SSH) Initial Connection Most VPS providers have SSH access setup by default."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://randomflea.dev/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://randomflea.dev/images/favicon.ico" />
+
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">All posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+         
+        <li><a href="/resume">Resume</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://randomflea.dev/posts/wargames/over-the-wire-bandit-1-4/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://randomflea.dev/posts/tutorials/hugo-cactus-isso-setup/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f&text=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f&title=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f&is_video=false&description=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS&body=Check out this article: https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f&title=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f&title=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f&name=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS&description=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS%20So%20you%20just%20got%20a%20VPS%20with%20Rocky%20Linux%20installed%20on%20it%20%28this%20guide%20will%20work%20for%20CentOS%2c%20RHEL%2c%20and%20Alma%20Linux%20too%29%20and%20you%20have%20questions%20about%20it.%20How%20do%20you%20keep%20this%20secure%20on%20the%20Internet%3f%20How%20do%20you%20connect%20to%20it%3f%20Here%20are%20a%20few%20simple%20steps%20to%20keep%20your%20VPS%20secure.%0aPrerequisites%20Rocky%20Linux%20Installed%20%28or%20CentOS%2c%20RHEL%2c%20or%20Alma%20Linux%29%20Root%20access%20to%20server%20Terminal%20access%20%28we%26rsquo%3bll%20be%20connecting%20with%20SSH%29%20Initial%20Connection%20Most%20VPS%20providers%20have%20SSH%20access%20setup%20by%20default." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f&t=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#initial-connection">Initial Connection</a></li>
+    <li><a href="#passwords">Passwords</a></li>
+    <li><a href="#ssh">SSH</a></li>
+    <li><a href="#fail2ban">fail2ban</a></li>
+    <li><a href="#wrapping-up">Wrapping Up</a></li>
+  </ul>
+</nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Initial Setup of a Rocky Linux VPS
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2022-07-08 12:21:46 -0400 EDT" itemprop="datePublished">2022-07-08</time>
+          
+        </div>
+        
+        
+        
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <h1 id="initial-setup-of-a-rocky-linux-vps">Initial Setup of a Rocky Linux VPS</h1>
+<p>So you just got a VPS with Rocky Linux installed on it (this guide will work for CentOS, RHEL, and Alma Linux too) and you have questions about it. How do you keep this secure on the Internet? How do you connect to it? Here are a few simple steps to keep your VPS secure.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ol>
+<li>Rocky Linux Installed (or CentOS, RHEL, or Alma Linux)</li>
+<li>Root access to server</li>
+<li>Terminal access (we&rsquo;ll be connecting with SSH)</li>
+</ol>
+<h2 id="initial-connection">Initial Connection</h2>
+<p>Most VPS providers have SSH access setup by default. There&rsquo;s different steps to connect depending on your operating system. For Linux and MacOS, open a terminal and use the ssh command:</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">    ssh root@server-ip
+</code></pre><p>For Windows, you need to download and install <a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.77-installer.msi">Putty</a>. Open Putty and enter the server&rsquo;s IP address in the Host Name box. Click Open then Yes on any popup that comes up. The popup just says you haven&rsquo;t connected to the machine before and wants to verify that you want to connect. Enter root for the username and the password your VPS provider gave you.</p>
+<h2 id="passwords">Passwords</h2>
+<p>First you want to change the root password. Use the passwd command for that. You&rsquo;ll need to enter the password in twice and won&rsquo;t look like your typing.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">    passwd
+</code></pre><p>The root account is a default account, so it poses a security risk. To mitigate this we&rsquo;ll create another user account with admin privileges. I&rsquo;ll call this account user for this guide, but that&rsquo;s not a great one to use in production. Run these commands to create the account, set the passwd, and grant admin privileges. The wheel group grants admin rights to a user on Rocky Linux.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">    useradd user
+    passwd user
+    usermod -aG wheel user
+</code></pre><p>Now we want to test the new account to make sure it has admin rights. We&rsquo;ll run updates to test this while updating the system as well. If no errors come up, then we&rsquo;re good.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">    su user
+    sudo dnf upgrade -y
+    exit
+</code></pre><p>We&rsquo;ll start a new SSH session with the user account. We&rsquo;ll use the same process as the Initial Connection section, but use the user account instead of root. Once connected, we can close the other session. Now let&rsquo;s disable the root account by editing the /etc/passwd file. We&rsquo;ll open the file with nano then edit the first line that starts with root. The last part of the line, /bin/bash, needs to change to /sbin/nologin. We&rsquo;ll start using <code>sudo</code> here to say we want the command run as an admin. When finished, use ctrl+x to save the file and exit.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">    sudo nano /etc/passwd
+    Change root:......:/bin/bash to root:.........:/sbin/nologin
+</code></pre><h2 id="ssh">SSH</h2>
+<p>First we want to change the port SSH listens to. This will prevent automated tools from finding and attacking the default port 22. We&rsquo;ll edit /etc/ssh/sshd_config to change the port and disable root access. Then we&rsquo;ll restart the SSH service to implement the changes. You should use a different port.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">    sudo nano /etc/ssh/sshd_config
+        Change #Port 22 to Port 4321
+        Change PermitRootLogin yes to PermitRootLogin no
+    
+    sudo systemctl restart sshd
+</code></pre><p>Now we need to change the firewall to block port 22 and allow the new port, 4321.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">    sudo firewall-cmd --permanent --zone=public --remove-service=ssh
+    sudo firewall-cmd --permanent --zone=public --add-port=XXXX/tcp
+    sudo firewall-cmd --reload
+</code></pre><p>Let&rsquo;s open a new seesion using the new port. For Windows, put the new port number in the Port box of Putty. For Linux and MacOS, use the -p switch. Once we verified that it&rsquo;s working, we can close the old session.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">    ssh user@server-ip -p 4321
+</code></pre><p>There&rsquo;s a more secure way to authenticate with SSH than just using a password. We can use a key and passphrase. First we need to do some setup on the server by creating a directory and file. Then assigned the correct permissions.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">    mkdir ~/.ssh
+    touch ~/.ssh/authorized_keys
+    chmod 700 ~/.ssh
+    chmod 600 ~/.ssh/authorized_keys
+</code></pre><p>Next we&rsquo;ll need to create the keys, then copy the public key to the server. For Windows, open Puttygen which comes with Putty. At the bottom, make sure RSA is clicked and set Nubmer of bits to 2048 or 4096. Click Generate and move the mouse in the window to generate randomness. Once it&rsquo;s done, save the private key. This is the key you&rsquo;ll use to authenticate so save it in a safe place. Copy the Public key for pasting int OpenSSH authorized_keys file: from ssh-rsa to ==. On the server, open ~/.ssh/authorized_keys, nano ~/.ssh/authorized_keys, and paste the public key into it. For Linux and MacOS, use the ssh-keygen and ssh-copy-id commands.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">    ssh-keygen -t rsa -b 4096
+    ssh-copy-id user@server-ip -p 4321
+</code></pre><p>Now we need to restart the SSH service and test the keys.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">    sudo systemctl restart sshd
+</code></pre><p>For Windows, open Putty and enter the IP and port. On the left side under Connection -&gt; SSH -&gt; Auth, enter the path to the private key in the Private key file for authentication box. Then go back to Session on the left. Type in a name under Saved Sessions and click Save. Now you can just double click on the name to connect. For Linux and MacOS, use the -i switch.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">    ssh user@server-ip -p 4321 -i /path/to/private/key
+</code></pre><p>When you connect using the private key, you&rsquo;ll enter your username and the passphrase for the private key. Once we&rsquo;ve verified it is working, we can close the other session. We can disable password authentication in the /etc/ssh/sshd_config file.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">    sudo nano /etc/ssh/sshd_config
+        change #PubkeyAuthentication yes to PubkeyAuthentication yes
+        change PasswordAuthentication yes to PasswordAuthentication no
+    sudo systemctl restart sshd
+</code></pre><h2 id="fail2ban">fail2ban</h2>
+<p>The last step is to setup fail2ban. It will block IP addresses after so many failed login attempts. There are 3 commands to install it.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">    sudo dnf install epel-release -y
+    sudo dnf upgrade -y
+    sudo dnf install fail2ban -y
+</code></pre><p>Now to configure fail2ban, we&rsquo;ll copy the jail.conf file to jail.local since jail.conf may be overwritten during updates. We&rsquo;ll use the jail.local file to set it up. There&rsquo;s 3 options for the basic setup: ignoreip, bantime, and maxretry. If there&rsquo;s a # in front of it, we need to delete the # to enable it. Fail2ban will ingore any IP in the ignoreip list. IP addresses will be blocked for the specified time in bantime, default is 10 minutes. A host will get blocked after the specified failures in maxretry.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">    sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+    sudo nano /etc/fail2ban/jail.local
+        ignoreip = ip-address ip-address2
+        bantime = 10m
+        maxretry = 5
+        
+    sudo systemctl start fail2ban
+    sudo systemctl enable fail2ban
+</code></pre><h2 id="wrapping-up">Wrapping Up</h2>
+<p>You should now have a secure Rocky Linux instance. I like to reboot it and test everything out again to make sure it all still works like it should. Next I plan on writing a tutorial on how I made my site. Thanks for reading.</p>
+
+    </div>
+  </article>
+
+    <div class="blog-post-comments">
+      <script
+        data-isso="/comments"
+        data-isso-id=""
+        data-isso-css="true"
+        data-isso-lang="en"
+        data-isso-avatar="true"
+        data-isso-avatar-bg="#f0f0f0"
+        src="/comments/js/embed.min.js">
+      </script>
+      <noscript>Please enable JavaScript to view the comments powered by <a href="https://posativ.org/isso/">Isso</a>.</noscript>
+      <div>
+        <section id="isso-thread"></section>
+      </div>
+  </div>
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">All posts</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/about">About</a></li>
+         
+          <li><a href="/resume">Resume</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#initial-connection">Initial Connection</a></li>
+    <li><a href="#passwords">Passwords</a></li>
+    <li><a href="#ssh">SSH</a></li>
+    <li><a href="#fail2ban">fail2ban</a></li>
+    <li><a href="#wrapping-up">Wrapping Up</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f&text=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f&title=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f&is_video=false&description=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS&body=Check out this article: https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f&title=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f&title=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f&name=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS&description=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS%20So%20you%20just%20got%20a%20VPS%20with%20Rocky%20Linux%20installed%20on%20it%20%28this%20guide%20will%20work%20for%20CentOS%2c%20RHEL%2c%20and%20Alma%20Linux%20too%29%20and%20you%20have%20questions%20about%20it.%20How%20do%20you%20keep%20this%20secure%20on%20the%20Internet%3f%20How%20do%20you%20connect%20to%20it%3f%20Here%20are%20a%20few%20simple%20steps%20to%20keep%20your%20VPS%20secure.%0aPrerequisites%20Rocky%20Linux%20Installed%20%28or%20CentOS%2c%20RHEL%2c%20or%20Alma%20Linux%29%20Root%20access%20to%20server%20Terminal%20access%20%28we%26rsquo%3bll%20be%20connecting%20with%20SSH%29%20Initial%20Connection%20Most%20VPS%20providers%20have%20SSH%20access%20setup%20by%20default." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2frocky-linux-vps-initial-setup%2f&t=Initial%20Setup%20of%20a%20Rocky%20Linux%20VPS" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2023  High Tech Amish 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">All posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+         
+        <li><a href="/resume">Resume</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+</html>

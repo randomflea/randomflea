@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Create Hugo Site with Cactus theme and Isso Comments | Random Flea</title>
+  <link rel = 'canonical' href = 'https://randomflea.dev/posts/tutorials/hugo-cactus-isso-setup/'>
+  <meta name="description" content="I&#39;ve spent 10&#43; years learning new skills and technology to complete tasks in my career as an IT Tech. I became proficient at finding and implementing budget friendly solutions to solve businesses problems. I quickly gained new responsibilities as I learned more of the environment. My main tasks include: vulnerability management, patch management, asset management, SIEM, and tier 2 helpdesk support. Outside of work I enjoy a range of different hobbies such as: astrophotagraphy, hiking, and reading. I also recently opened a board game cafe with my wife.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Create Hugo Site with Cactus theme and Isso Comments" />
+<meta property="og:description" content="I had been using flask to run my personal site, then decided to switch to Hugo for simplicity. I looked through the Hugo Themes and really liked the Cactus Theme. It&rsquo;s minimal and just looks better in my opinion. It had places for my blog, projects, and info about me which is all I needed for now. I wanted to add a comment section to my blog posts. Disqus is the big one but I don&rsquo;t like the tracking they do." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://randomflea.dev/posts/tutorials/hugo-cactus-isso-setup/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-12T12:21:45-04:00" />
+<meta property="article:modified_time" content="2022-07-12T12:21:45-04:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Create Hugo Site with Cactus theme and Isso Comments"/>
+<meta name="twitter:description" content="I had been using flask to run my personal site, then decided to switch to Hugo for simplicity. I looked through the Hugo Themes and really liked the Cactus Theme. It&rsquo;s minimal and just looks better in my opinion. It had places for my blog, projects, and info about me which is all I needed for now. I wanted to add a comment section to my blog posts. Disqus is the big one but I don&rsquo;t like the tracking they do."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://randomflea.dev/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://randomflea.dev/images/favicon.ico" />
+
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">All posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+         
+        <li><a href="/resume">Resume</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://randomflea.dev/posts/tutorials/rocky-linux-vps-initial-setup/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://randomflea.dev/posts/tech/sec&#43;/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f&text=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f&title=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f&is_video=false&description=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments&body=Check out this article: https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f&title=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f&title=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f&name=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments&description=I%20had%20been%20using%20flask%20to%20run%20my%20personal%20site%2c%20then%20decided%20to%20switch%20to%20Hugo%20for%20simplicity.%20I%20looked%20through%20the%20Hugo%20Themes%20and%20really%20liked%20the%20Cactus%20Theme.%20It%26rsquo%3bs%20minimal%20and%20just%20looks%20better%20in%20my%20opinion.%20It%20had%20places%20for%20my%20blog%2c%20projects%2c%20and%20info%20about%20me%20which%20is%20all%20I%20needed%20for%20now.%20I%20wanted%20to%20add%20a%20comment%20section%20to%20my%20blog%20posts.%20Disqus%20is%20the%20big%20one%20but%20I%20don%26rsquo%3bt%20like%20the%20tracking%20they%20do." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f&t=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#prerequisites">Prerequisites</a>
+      <ul>
+        <li><a href="#note">Note</a></li>
+      </ul>
+    </li>
+    <li><a href="#install-dependencies">Install Dependencies</a></li>
+    <li><a href="#setup-hugo">Setup Hugo</a></li>
+    <li><a href="#configure-nginx-for-mysite">Configure Nginx for mysite</a></li>
+    <li><a href="#setup-isso">Setup Isso</a></li>
+    <li><a href="#configure-nginx-for-isso">Configure Nginx for Isso</a></li>
+    <li><a href="#integrate-isso-with-mysite">Integrate Isso with mysite</a></li>
+    <li><a href="#setup-ssl-for-mysite">Setup SSL for mysite</a></li>
+    <li><a href="#closing-thoughts">Closing Thoughts</a>
+      <ul>
+        <li><a href="#references-i-used">References I Used</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Create Hugo Site with Cactus theme and Isso Comments
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2022-07-12 12:21:45 -0400 EDT" itemprop="datePublished">2022-07-12</time>
+          
+        </div>
+        
+        
+        
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <p>I had been using flask to run my personal site, then decided to switch to <a href="https://gohugo.io/">Hugo</a> for simplicity. I looked through the <a href="https://themes.gohugo.io/">Hugo Themes</a> and really liked the <a href="https://themes.gohugo.io/themes/hugo-theme-cactus/">Cactus Theme</a>. It&rsquo;s minimal and just looks better in my opinion. It had places for my blog, projects, and info about me which is all I needed for now. I wanted to add a comment section to my blog posts. Disqus is the big one but I don&rsquo;t like the tracking they do. I searched for an alternative and found <a href="https://isso-comments.de/">Isso</a>. It&rsquo;s a Python package that uses SQLite so I liked that. Now let&rsquo;s talk about how to set all of this up.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ol>
+<li>Rocky Linux is installed and running (CentOS, RHEL, or AlmaLinux will work too)</li>
+<li>A user with admin rights (this username is user)</li>
+<li>You have a domain name (mysite.com is used here)</li>
+<li>DNS has an A record pointing to the server IP</li>
+</ol>
+<h3 id="note">Note</h3>
+<p>I recommend going through my post on how to <a href="https://randomflea.dev/posts/tutorials/rocky-linux-vps-initial-setup/">setup your VPS instance to make it more secure</a>.</p>
+<h2 id="install-dependencies">Install Dependencies</h2>
+<p>We need to install all the dependencies for Hugo, Isso, and nginx. We need the Extra Packages for Enterprise Linux, then run an upgrade. Next, we can install the dependencies.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">sudo dnf install epel-release -y
+sudo dnf upgrade -y
+sudo dnf install python3 python3-devel sqlite gcc git nginx snapd -y
+</code></pre><h2 id="setup-hugo">Setup Hugo</h2>
+<p>Hugo is installed by <a href="https://brew.sh/">Homebrew</a> which is not installed by default on Rocky Linux. To install Homebrew, we use the command:</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">/bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34;
+</code></pre><p>Press Enter to continue the install and wait a few minutes. Once it&rsquo;s finished, it will give you two commands to run:</p>
+<pre tabindex="0"><code>echo &#39;eval &#34;$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)&#34;&#39; &gt;&gt; /home/user/.bash_profile
+eval &#34;$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)&#34;
+</code></pre><p>Now we can run <code>brew install hugo</code> to install Hugo. With Hugo installed, we can create our site by using this command:</p>
+<pre tabindex="0"><code>hugo new site mysite
+</code></pre><p>You should replace mysite with the name of your site. This will create a directory called mysite in the current directory. Next we need to download the Cactus theme and add it to the site config with these commands:</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">cd mysite
+git init --initial-branch=main
+git submodule add https://github.com/monkeyWzr/hugo-theme-cactus themes/cactus
+</code></pre><p>Let&rsquo;s edit the config file for mysite. I use nano to edit files from the command line.</p>
+<p><code>nano ~/mysite/config.toml</code></p>
+<p>This is an example config. Replace <a href="http://mysite.com">http://mysite.com</a> with your domain. You can change the title, copyright, and anything else you need to.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">baseURL = &#39;http://mysite.com/&#39;
+languageCode = &#39;en-us&#39;
+title = &#39;My Site&#39;
+theme = &#34;cactus&#34;
+copyright = &#34;You or your company&#34;
+
+[params]
+    colortheme = &#34;dark&#34;
+    description = &#34;This is my site. Hope you enjoy&#34;
+    showAllPostsOnHomePage = false
+    postsOnHomePage = 5
+    showProjectsList = true
+    projectsUrl = &#34;https://github.com/&#34;
+
+    [[params.social]]
+        name = &#34;github&#34;
+        link = &#34;https://github.com/&#34;
+    [[params.social]]
+        name = &#34;linkedin&#34;
+        link = &#34;https://www.linkedin.com&#34;
+    [[params.social]]
+        name = &#34;email&#34;
+        link = &#34;mailto:mysite@gmail.com&#34;
+
+    [[menu.main]]
+        name = &#34;Home&#34;
+        url = &#34;/&#34;
+        weight = 1
+
+    [[menu.main]]
+        name = &#34;All posts&#34;
+        url = &#34;/posts&#34;
+        weight = 2
+
+    [[menu.main]]
+        name = &#34;Tags&#34;
+        url = &#34;/tags&#34;
+        weight = 3
+
+    [[menu.main]]
+        name = &#34;About&#34;
+        url = &#34;/about&#34;
+        weight = 4
+</code></pre><p>Save and exit Nano with ctrl+x. Type y to confirm saving then press enter to save the file. Running <code>hugo -D</code> will create the files for mysite. It&rsquo;s time to test it out. We need to allow port 1313 through the firewall temporarily, then start the Hugo server. Replace server-ip with the actual IP.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">sudo firewall-cmd --add-port=1313/tcp --zone=public
+hugo server --bind=server-ip --baseURL=server-ip
+</code></pre><p>Open a browser and go to http://server-ip:1313. If your site comes up without errors, we can ctrl+c to stop the server. We need to remove the firewall rule to allow port 1313 by running <code>sudo firewall-cmd --reload</code>. Now we need to copy the mysite directory to /var/www/mysite. This will be our production directory and /home/user/mysite will be our test directory where we make changes and test.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">sudo mkdir /var/www
+sudo chown -R user:nginx /var/www
+sudo chmod 0755 /var/www
+cp -rf ~/mysite /var/www/
+</code></pre><h2 id="configure-nginx-for-mysite">Configure Nginx for mysite</h2>
+<p>Now we need to configure Nginx to serve mysite. We make our config file in /etc/nginx/conf.d/mysite.conf, you can name the .conf file whatever you want. I use nano to edit files.</p>
+<p><code>sudo nano /etc/nginx/conf.d/mysite.conf</code></p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">server {
+    listen 80;
+    server_name mysite.com;
+
+    root /var/www/mysite/public/;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+</code></pre><p>Save and exit Nano with ctrl+x. Type y to confirm saving then press enter to save the file. We also need to disable the default nginx config. Let&rsquo;s open /etc/nginx/nginx.conf and comment out the server block under http by adding a # to start of each line:</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">#    server {
+#        listen       80 default_server;
+#        listen       [::]:80 default_server;
+#        server_name  _;
+#        root         /usr/share/nginx/html;
+#
+#        # Load configuration files for the default server block.
+#        include /etc/nginx/default.d/*.conf;
+#
+#        location / {
+#        }
+#
+#        error_page 404 /404.html;
+#            location = /40x.html {
+#        }
+#
+#        error_page 500 502 503 504 /50x.html;
+#            location = /50x.html {
+#        }
+#    }
+</code></pre><p>Save and exit nano. Port 80 and 443 need to be allowed through the firewall. Next we need to test the nginx config and start the nginx service. We can check if nginx is running with the systemctl status command. If you see active (running), it&rsquo;s good. Press q to exit that. Then we can enable nginx to run on boot.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">sudo firewall-cmd --zone=public --add-service=http --permanent
+sudo firewall-cmd --zone=public --add-service=https --permanent
+sudo firewall-cmd --reload
+sudo nginx -t
+sudo systemctl start nginx
+sudo systemctl status nginx
+sudo systemctl enable nginx
+</code></pre><p>At this point we can test if our site is working. Open a browser and go to mysite.com. If you can see My New Huo Site, it&rsquo;s working like it should.</p>
+<h2 id="setup-isso">Setup Isso</h2>
+<p>To install <a href="">Isso</a>, we have to create a isso user and create a python virtual environment. <code>sudo useradd isso</code> will create the isso user. Then we need to block ssh access for the isso user. We&rsquo;ll edit /etc/ssh/sshd_config and add &ldquo;DenyUsers isso&rdquo; without the quotes to the end of it. Now let&rsquo;s restart sshd and switch to the isso user.</p>
+<pre tabindex="0"><code>sudo systemctl restart sshd.service
+sudo su isso
+cd
+</code></pre><p>Now we will create the python virtual environment and install Isso with these commands:</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">mkdir db etc log
+python3 -m venv isso
+source isso/bin/activate
+pip3 install --upgrade pip
+pip3 install isso
+pip3 install gevent
+</code></pre><p>Create the isso config file using <code>nano ~/etc/comments.cfg</code>. This is my config file. Replace <a href="http://mysite.com">http://mysite.com</a> with your domain. Do not replace the salt. You should replace isso_admin_password on the last line with your own password.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">[general]
+; Batabase location, check permissions, automatically created if not exists
+dbpath = /home/isso/db/comments.db
+; Blog website url
+host = http://mysite.com/comments
+; Log file
+log-file = /home/isso/log/isso.log
+
+[moderation]
+; Enable comment moderation
+enabled = true
+purge-after = 30d
+
+[server]
+; Listen custom port 7845
+listen = http://localhost:7845
+
+[guard]
+; Enable basic spam protection features
+; REMEMBER to edit the client configuration accordingly
+enabled = true
+; limit to 2 new comments per minute
+ratelimit = 2
+; limit 25 comments directly to the thread
+direct-reply = 25
+; allow commenters to reply to their own comments when they could 
+; still edit the comment
+reply-to-self = true
+; force commenters to enter a value into the author field
+require-author = true
+require-email = false
+
+[markup]
+options = strikethrough, superscript, autolink
+allowed-elements =
+allowed-attributes =
+
+[hash]
+salt = Eec77co7Ohloo3o9Ol6baimi
+algorithm = pbkdf2
+
+[rss]
+; provide an Atom feed for each comment thread
+
+[admin]
+; Provide a web administration interface
+enabled = true
+password = isso_admin_password
+</code></pre><p>Next run <code>isso -c ~/etc/comments.cfg run</code> to test the config. As long as there are no error messages, it&rsquo;s good and you can ctrl+c to stop it. We&rsquo;ll need sudo to run the rest of the commands so type <code>exit</code> and press enter. That&rsquo;ll log off isso and go back to user. Now we&rsquo;ll create a systemd service file to run isso on boot. Create the file /usr/lib/systemd/system/isso.service with this config:</p>
+<p><code>nano /usr/lib/systemd/system/isso.service</code></p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">[Unit]
+Description=Isso Comment Server
+
+[Service]
+Type=simple
+User=isso
+workingDirectory=/home/isso
+Environment=&#34;PATH=/home/isso/isso/bin&#34;
+ExecStart=/home/isso/isso/bin/isso -c /home/isso/etc/comments.cfg
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+</code></pre><p>Then run these command to start the isso service and enable it to run on boot:</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">sudo systemctl daemon-reload
+sudo systemctl start isso.service
+sudo systemctl enable isso.service
+</code></pre><h2 id="configure-nginx-for-isso">Configure Nginx for Isso</h2>
+<p>Now we need to configure Nginx for Isso. We&rsquo;ll edit our config file in /etc/nginx/conf.d/mysite.conf. We need to add the location /comments block under the location / block.</p>
+<p><code>nano /etc/nginx/conf.d/mysite.conf</code></p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">server {
+    listen 80;
+    server_name mysite.com;
+
+    root /var/www/mysite/public/;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location /comments {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Script-Name /comments;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_pass http://localhost:7845;
+    }
+}
+</code></pre><p>Next we&rsquo;ll test the nginx config again and restart the service if there are no errors:</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">sudo nginx -t
+sudo systemctl restart nginx
+sudo systemctl status nginx
+</code></pre><p>Let&rsquo;s see if Isso working through nginx by browsing to mysite.com/comments/admin. You should get a login page. Enter the isso_admin_password from the config file and make sure you can login. If that&rsquo;s working, we can integrate Hugo and Isso.</p>
+<h2 id="integrate-isso-with-mysite">Integrate Isso with mysite</h2>
+<p>We need to tell Hugo to use Isso comments by editing the config.toml in the /home/user/mysite directory. At the end of config.toml, add these lines:</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">[params.comments]
+    enabled = true
+    engine = &#34;isso&#34;
+    
+[params.isso]
+    data = &#34;/comments&#34;
+    css = true
+    lang = &#34;en&#34;
+    avatar = true
+    avatarBg = &#34;#f0f0f0&#34;
+</code></pre><p>Then we have to edit an HTML file to display the comments. In mysite/themes/cactus/layouts/partials/comments.html, below <code>{{ partial &quot;comments/cactus_comments.html&quot; . }}</code> add these lines:</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">{{ else if eq .Site.Params.Comments.Engine &#34;isso&#34; }}
+      {{ partial &#34;comments/isso.html&#34; }}
+</code></pre><p>Let&rsquo;s create the mysite/themes/cactus/layouts/partials/comments/isso.html file. Add this to it:</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">&lt;div class=&#34;blog-post-comments&#34;&gt;
+  &lt;script
+    data-isso=&#34;{{ .Site.Params.isso.data }}&#34;
+    data-isso-id=&#34;{{ .Site.Params.isso.id}}&#34;
+    data-isso-css=&#34;{{ .Site.Params.isso.css }}&#34;
+    data-isso-lang=&#34;{{ .Site.Params.isso.lang }}&#34;
+    data-isso-avatar=&#34;{{ .Site.Params.isso.avatar }}&#34;
+    data-isso-avatar-bg=&#34;{{ .Site.Params.isso.avatarBg }}&#34;
+    src=&#34;/comments/js/embed.min.js&#34;&gt;
+  &lt;/script&gt;
+  &lt;noscript&gt;Please enable JavaScript to view the comments powered by &lt;a href=&#34;https://posativ.org/isso/&#34;&gt;Isso&lt;/a&gt;.&lt;/noscript&gt;
+  &lt;div&gt;
+    &lt;section id=&#34;isso-thread&#34;&gt;&lt;/section&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>Let&rsquo;s make a test post and see if the comments show up. Run this command to create a new post: <code>hugo new posts/first.md</code>. This will be stored in mysite/content/post/first.md. Open that file and add anything below the last &mdash;. Also change draft: true to draft: false. Now we can run <code>hugo -D</code> again to create the site files. Then copy them to the production directory.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">cp -rf ~/mysite /var/www/
+</code></pre><p>As long as the comment section shows up, it&rsquo;s all working like it should. All that&rsquo;s left is to enable SSL on the site.</p>
+<h2 id="setup-ssl-for-mysite">Setup SSL for mysite</h2>
+<p>We&rsquo;ll use Let&rsquo;s Encrypt to generate the certificates. We need to setup snap to install certbot.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
+sudo snap install core # may get error: too early for operation, give it a couple seconds
+sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --nginx
+</code></pre><p>In the Isso config file change the host variable to be https.</p>
+<p><code>nano /home/isso/etc/comments.cfg</code></p>
+<pre tabindex="0"><code>host = https://mysite.com
+</code></pre><p>Cerbot will handle changing the mysite.conf nginx file to include the certificate. It will also redirect port 80 to 443 so everything works like you would expect. The very last step is to restart nginx and make sure everything still works.</p>
+<pre tabindex="0"><code class="language-commandline" data-lang="commandline">sudo systemctl restart nginx
+</code></pre><h2 id="closing-thoughts">Closing Thoughts</h2>
+<p>You now have a Hugo website with Isso comments served by nginx. Hugo makes it easy to customise the site. You can play around with the different options for the config.toml file and see what you like best. Enjoy your new site and happy posting!</p>
+<h3 id="references-i-used">References I Used</h3>
+<ol>
+<li><a href="https://gohugo.io/getting-started/quick-start/">Hugo Quick Start Guide</a></li>
+<li><a href="https://themes.gohugo.io/themes/hugo-theme-cactus/">Cactus Theme</a></li>
+<li><a href="https://isso-comments.de/docs/reference/client-config/">Isso Documentation</a></li>
+<li><a href="https://www.brunoparmentier.be/blog/getting-isso-to-work-on-centos-6-and-nginx/">Bruno Parmentier Blog</a></li>
+<li><a href="https://omicx.cc/posts/2021-04-16-create-a-hugo-blog/">Omicx Blog</a></li>
+<li><a href="https://certbot.eff.org/instructions?ws=nginx&amp;os=centosrhel8">Certbot Instructions</a></li>
+<li><a href="https://snapcraft.io/docs/installing-snap-on-rocky">Snapcraft</a></li>
+</ol>
+
+    </div>
+  </article>
+
+    <div class="blog-post-comments">
+      <script
+        data-isso="/comments"
+        data-isso-id=""
+        data-isso-css="true"
+        data-isso-lang="en"
+        data-isso-avatar="true"
+        data-isso-avatar-bg="#f0f0f0"
+        src="/comments/js/embed.min.js">
+      </script>
+      <noscript>Please enable JavaScript to view the comments powered by <a href="https://posativ.org/isso/">Isso</a>.</noscript>
+      <div>
+        <section id="isso-thread"></section>
+      </div>
+  </div>
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">All posts</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/about">About</a></li>
+         
+          <li><a href="/resume">Resume</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#prerequisites">Prerequisites</a>
+      <ul>
+        <li><a href="#note">Note</a></li>
+      </ul>
+    </li>
+    <li><a href="#install-dependencies">Install Dependencies</a></li>
+    <li><a href="#setup-hugo">Setup Hugo</a></li>
+    <li><a href="#configure-nginx-for-mysite">Configure Nginx for mysite</a></li>
+    <li><a href="#setup-isso">Setup Isso</a></li>
+    <li><a href="#configure-nginx-for-isso">Configure Nginx for Isso</a></li>
+    <li><a href="#integrate-isso-with-mysite">Integrate Isso with mysite</a></li>
+    <li><a href="#setup-ssl-for-mysite">Setup SSL for mysite</a></li>
+    <li><a href="#closing-thoughts">Closing Thoughts</a>
+      <ul>
+        <li><a href="#references-i-used">References I Used</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f&text=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f&title=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f&is_video=false&description=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments&body=Check out this article: https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f&title=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f&title=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f&name=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments&description=I%20had%20been%20using%20flask%20to%20run%20my%20personal%20site%2c%20then%20decided%20to%20switch%20to%20Hugo%20for%20simplicity.%20I%20looked%20through%20the%20Hugo%20Themes%20and%20really%20liked%20the%20Cactus%20Theme.%20It%26rsquo%3bs%20minimal%20and%20just%20looks%20better%20in%20my%20opinion.%20It%20had%20places%20for%20my%20blog%2c%20projects%2c%20and%20info%20about%20me%20which%20is%20all%20I%20needed%20for%20now.%20I%20wanted%20to%20add%20a%20comment%20section%20to%20my%20blog%20posts.%20Disqus%20is%20the%20big%20one%20but%20I%20don%26rsquo%3bt%20like%20the%20tracking%20they%20do." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2frandomflea.dev%2fposts%2ftutorials%2fhugo-cactus-isso-setup%2f&t=Create%20Hugo%20Site%20with%20Cactus%20theme%20and%20Isso%20Comments" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2023  High Tech Amish 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">All posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+         
+        <li><a href="/resume">Resume</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+</html>
